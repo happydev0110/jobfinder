@@ -1,0 +1,27 @@
+%ol.tweet-list
+  %li.tweet-card
+    .tweet-content
+      .tweet-header
+        %span.fullname
+          %strong 
+            = tweet_account_link(tweet.name, tweet.screen_name)
+        %span.username 
+          @#{tweet.screen_name}
+        %span.tweet-time 
+          \ - #{distance_of_time_in_words(tweet.date, Time.now) } ago
+      %a
+        %img.tweet-card-avatar{:alt => "", :src => "#{tweet.photo_url}"}/
+      .tweet-text
+        %p{"data-aria-label-part" => "0", :lang => "es"}
+          = auto_link(tweet.message).html_safe
+         
+      .tweet-footer
+        
+        %a.tweet-footer-btn
+          %i.fa.fa-retweet{"aria-hidden" => "true"}
+          %span 
+            = tweet.retweet_count
+        %a.tweet-footer-btn
+          %i.fa.fa-heart{"aria-hidden" => "true"}
+          %span
+            = tweet.favorite_count

@@ -1,0 +1,31 @@
+/ Footer area
+.footer-area
+  .footer-copy.text-center
+    .container
+      .row
+        .pull-left
+          %p.bold.footer-p
+            JobFinder - Web App using Rails 5 and React 
+            
+            
+            %span.developed_by
+              Developed by: 
+              =link_to "Nishanth Ganga", "https://www.linkedin.com/in/nishanthganga/", target: "_blank"
+
+            %span.credits
+              Theme used: 
+              =link_to "Garo Estate", "https://technext.github.io/garo-estate/", target: "_blank"
+
+
+        .bottom-menu.pull-right
+          %ul
+            %li
+              =link_to "Home", root_path
+            %li
+              =link_to "Search Jobs", jobs_search_path
+            %li
+              =link_to "Jobs on Twitter", jobs_on_twitter_path
+            %li
+              =link_to "Add Jobs", jobs_new_path
+              
+          

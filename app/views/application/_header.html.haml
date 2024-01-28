@@ -1,0 +1,36 @@
+/
+  <div id="preloader">
+  <div id="status"> </div>
+  </div>
+/ Body content
+%nav.navbar.navbar-default
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#navigation", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to root_path, title: "Some link", class: "navbar-brand" do
+        %h3 JobFinder
+     
+    / Collect the nav links, forms, and other content for toggling
+    #navigation.collapse.navbar-collapse.yamm
+      %ul.main-nav.nav.navbar-nav.navbar-right
+        %li
+          =link_to "Home", root_path, class: "#{active? root_path}"
+        %li
+          =link_to "Search Jobs", jobs_search_path, class: "#{active? jobs_search_path}"
+        %li
+          =link_to "Jobs on Twitter", jobs_on_twitter_path, class: "#{twitter_feeds_page?}"
+        %li
+          =link_to "Add Jobs", jobs_new_path, class: "#{active? jobs_new_path}"
+
+        - if current_admin && admin_signed_in?
+          %li 
+            =link_to "Sign Out", destroy_admin_session_path, method: :delete
+
+    / /.navbar-collapse
+  / /.container-fluid
+/ End of nav bar

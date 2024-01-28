@@ -1,0 +1,26 @@
+
+.content-area.blog-page.padding-top-40.jobs-on-twitter-container
+  .container
+    .row
+      .col-md-3.panel.panel-default.sidebar-menu.wow.fadeInRight.animated
+        .jobs-on-twitter-list
+          .bs-example
+            %ul.list-group
+              - @search_terms.each do |term|
+                = link_to jobs_on_twitter_path(id: term.first), class: "search_terms" do
+                  -if @id == term.first
+                    %li.list-group-item.active
+                      %h5.bold 
+                        = term.last
+                  -else
+                    %li.list-group-item
+                      %h5.bold 
+                        = term.last
+      
+      .col-md-9
+        #tweets
+          = render :partial => "jobs/tweets", :collection => @tweets, :as => :tweet
+        
+        #loading_message    
+        #pagination-div{:style => "visibility: hidden;"}
+          = will_paginate @tweets

@@ -1,0 +1,80 @@
+#all_skills_as_json{data: @all_skills}
+.slider-area
+  .slider
+    #bg-slider.owl-carousel.owl-theme
+      .item
+        = image_tag "office-bg1.jpg", alt: "Home Page Background"
+  .slider-content
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-sm-12
+        %h2 Search jobs in your favorite platform
+        .search-form.wow.pulse{"data-wow-delay" => "0.8s"}
+
+          =form_tag jobs_search_path, class: 'form-inline', method: 'get' do
+            .form-group
+              #auto_suggestion
+              = javascript_pack_tag 'auto_suggestion'
+              / =text_field_tag :query, nil, class: "form-control", placeholder: "Programming Platform"
+            =button_tag nil, class: 'btn search-btn' , type: :submit do
+              %i.fa.fa-search
+
+.count-area
+  .container
+    .row
+      .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
+        / /.feature title
+        %h2 Search among many technologies
+    .row
+      .col-md-12.col-xs-12.percent-blocks.m-main{"data-waypoint-scroll" => "true"}
+        .row
+          .col-sm-3.col-xs-6
+            .count-item
+              %div
+                %i.devicon-rails-plain-wordmark.colored.lang-platform-icon
+              .chart
+                %h2 Ruby on Rails
+          .col-sm-3.col-xs-6
+            .count-item
+              %div
+                %i.devicon-react-original.colored.lang-platform-icon
+              .chart
+                %h2 React JS
+          .col-sm-3.col-xs-6
+            .count-item
+              %div
+                %i.devicon-javascript-plain.colored.lang-platform-icon
+              .chart
+                %h2 JavaScript
+          .col-sm-3.col-xs-6
+            .count-item
+              %div
+                %i.devicon-python-plain.colored.lang-platform-icon
+              .chart
+                %h2 Python
+    .row
+      .col-md-12.col-xs-12.percent-blocks.m-main{"data-waypoint-scroll" => "true"}
+        .row
+          .col-sm-3.col-xs-6
+            .count-item
+              %div
+                %i.devicon-nodejs-plain.colored.lang-platform-icon
+              .chart
+                %h2 Node JS
+          .col-sm-3.col-xs-6
+            .count-item
+              %div
+                %i.devicon-angularjs-plain.colored.lang-platform-icon
+              .chart
+                %h2 Angular JS
+          .col-sm-3.col-xs-6
+            .count-item
+              %div
+                %i.devicon-android-plain.colored.lang-platform-icon
+              .chart
+                %h2 Android
+          .col-sm-3.col-xs-6
+            .count-item
+              %div
+                %i.devicon-apple-original.colored.lang-platform-icon
+              .chart
+                %h2 iOS
